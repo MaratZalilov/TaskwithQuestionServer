@@ -98,7 +98,6 @@ namespace TaskwithQuestionServer
                             _answerAndQuestion.Add((byte)'\n');
                             _count++;
 
-
                         }
                         //MessageBox.Show(Encoding.UTF8.GetString(_answerAndQuestion.ToArray()));
                         //MessageBox.Show(_count.ToString());
