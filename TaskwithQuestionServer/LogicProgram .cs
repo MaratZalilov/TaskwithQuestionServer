@@ -124,12 +124,13 @@ namespace TaskwithQuestionServer
 
         public void GetAnswerUsers() // Получение ответов от пользователя (Пока не работает)
         {
+            //StringBuilder answer = new StringBuilder();
             try
             {
                 byte[] buffer = new byte[1024];
-                int b = _stream.Read(buffer, 0, 1024);
-                string answerUsers = Encoding.UTF8.GetString(buffer);
-                MessageBox.Show(answerUsers);
+                int bytes = _stream.Read(buffer, 0, 1024);
+                string answerUsers = Encoding.UTF8.GetString(buffer,0,bytes);
+                MessageBox.Show(answerUsers.ToString());
             }
             catch (Exception ex)
             {

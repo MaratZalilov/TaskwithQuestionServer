@@ -40,9 +40,11 @@
             // 
             // ButtonConection
             // 
-            this.ButtonConection.Location = new System.Drawing.Point(333, 226);
+            this.ButtonConection.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ButtonConection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButtonConection.Location = new System.Drawing.Point(365, 280);
             this.ButtonConection.Name = "ButtonConection";
-            this.ButtonConection.Size = new System.Drawing.Size(155, 35);
+            this.ButtonConection.Size = new System.Drawing.Size(155, 45);
             this.ButtonConection.TabIndex = 0;
             this.ButtonConection.Text = "Подключиться";
             this.ButtonConection.UseVisualStyleBackColor = true;
@@ -50,9 +52,11 @@
             // 
             // ButtonLoadingQuestion
             // 
-            this.ButtonLoadingQuestion.Location = new System.Drawing.Point(333, 267);
+            this.ButtonLoadingQuestion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ButtonLoadingQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButtonLoadingQuestion.Location = new System.Drawing.Point(365, 330);
             this.ButtonLoadingQuestion.Name = "ButtonLoadingQuestion";
-            this.ButtonLoadingQuestion.Size = new System.Drawing.Size(155, 35);
+            this.ButtonLoadingQuestion.Size = new System.Drawing.Size(155, 45);
             this.ButtonLoadingQuestion.TabIndex = 2;
             this.ButtonLoadingQuestion.Text = "Загрузить список вопросов";
             this.ButtonLoadingQuestion.UseVisualStyleBackColor = true;
@@ -60,9 +64,11 @@
             // 
             // ButtonGetAnswer
             // 
-            this.ButtonGetAnswer.Location = new System.Drawing.Point(333, 308);
+            this.ButtonGetAnswer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ButtonGetAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButtonGetAnswer.Location = new System.Drawing.Point(365, 380);
             this.ButtonGetAnswer.Name = "ButtonGetAnswer";
-            this.ButtonGetAnswer.Size = new System.Drawing.Size(155, 35);
+            this.ButtonGetAnswer.Size = new System.Drawing.Size(155, 45);
             this.ButtonGetAnswer.TabIndex = 3;
             this.ButtonGetAnswer.Text = "Получить ответы";
             this.ButtonGetAnswer.UseVisualStyleBackColor = true;
@@ -74,7 +80,7 @@
             this.MainText.AutoSize = true;
             this.MainText.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MainText.ForeColor = System.Drawing.Color.White;
-            this.MainText.Location = new System.Drawing.Point(168, 77);
+            this.MainText.Location = new System.Drawing.Point(200, 70);
             this.MainText.Name = "MainText";
             this.MainText.Size = new System.Drawing.Size(504, 46);
             this.MainText.TabIndex = 4;
@@ -86,7 +92,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(884, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -110,7 +116,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.MainText);
             this.Controls.Add(this.ButtonGetAnswer);
             this.Controls.Add(this.ButtonLoadingQuestion);
