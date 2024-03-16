@@ -27,7 +27,7 @@ namespace TaskwithQuestionServer
             try
             {
                 _listener.Start();
-                MessageBox.Show("Соединение с клиентом установлено");
+                //MessageBox.Show("Соединение с клиентом установлено");
             }
             catch (Exception ex)
             {
@@ -36,24 +36,28 @@ namespace TaskwithQuestionServer
         }
         public async void SendQuestionAndAnswer() // Отправка вопросов и ответов
         {
+
             try
             {
                 TcpClient handler = await _listener.AcceptTcpClientAsync();
                 NetworkStream stream = handler.GetStream();
 
-                stream.Write(_answerAndQuestion.ToArray(), 0, _answerAndQuestion.Count);
+                stream.Write(_answerAndQuestion.ToArray(), 0, _answerAndQuestion.Count);  
+                GetAnswerUsers(stream);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+          
+            
         }
 
         public void ReadExcelDock() // Чтение Excel документа
         {
             if (_path == null)
             {
-                MessageBox.Show("Выберите Excel документ");
+                //MessageBox.Show("Выберите Excel документ");
             }
             else
             {
@@ -70,7 +74,7 @@ namespace TaskwithQuestionServer
                         Worksheet worksheet = collection[worksheetIndex];
 
 
-                        MessageBox.Show("Worksheet: " + worksheet.Name);
+                        //MessageBox.Show("Worksheet: " + worksheet.Name);
 
                         int rows = worksheet.Cells.MaxDataRow + 1;
                         int cols = worksheet.Cells.MaxDataColumn + 1;
@@ -94,8 +98,8 @@ namespace TaskwithQuestionServer
 
 
                         }
-                        MessageBox.Show(Encoding.UTF8.GetString(_answerAndQuestion.ToArray()));
-                        MessageBox.Show(_count.ToString());
+                        //MessageBox.Show(Encoding.UTF8.GetString(_answerAndQuestion.ToArray()));
+                        //MessageBox.Show(_count.ToString());
                     }
                 }
                 catch (Exception ex)
@@ -114,12 +118,29 @@ namespace TaskwithQuestionServer
             path = openFileDialog.FileName;
             _path = Path.GetFullPath(path);
 
-            MessageBox.Show(_path);
+            //MessageBox.Show(_path);
         }
 
         public void GetAnswer() // Получение ответов от пользователя (Пока не работает)
         {
             MessageBox.Show("В разработке");
+        }
+
+        public async void GetAnswerUsers(NetworkStream stream)
+        {
+            try
+            {
+                
+               
+                byte[] buffer = new byte[1024];
+                int b = stream.Read(buffer, 0, 1024);
+                string answerUsers = Encoding.UTF8.GetString(buffer);
+                MessageBox.Show(answerUsers);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 

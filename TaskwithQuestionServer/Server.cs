@@ -30,7 +30,7 @@ namespace TaskwithQuestionServer
 
         private void ButtonGetAnswer_Click(object sender, EventArgs e) // Кнопка получения ответов от user
         {
-            _logicProgram.GetAnswer();
+            //_logicProgram.GetAnswerUsers();
         }
     }
 }
