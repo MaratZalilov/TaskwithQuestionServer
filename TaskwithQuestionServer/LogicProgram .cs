@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,10 +15,12 @@ namespace TaskwithQuestionServer
     internal class LogicProgram
     {
         private TcpListener _listener;
+        private NetworkStream _stream;
 
         private List<byte> _answerAndQuestion = new List<byte>();
 
-        public string _path = null;
+        private string _path = null;
+
         private int _count = 0;
 
         public async void ConnectToClient() // Подключение к клиентам 
@@ -40,10 +43,9 @@ namespace TaskwithQuestionServer
             try
             {
                 TcpClient handler = await _listener.AcceptTcpClientAsync();
-                NetworkStream stream = handler.GetStream();
+                _stream = handler.GetStream();
 
-                stream.Write(_answerAndQuestion.ToArray(), 0, _answerAndQuestion.Count);  
-                GetAnswerUsers(stream);
+                _stream.Write(_answerAndQuestion.ToArray(), 0, _answerAndQuestion.Count);
             }
             catch (Exception ex)
             {
@@ -121,19 +123,12 @@ namespace TaskwithQuestionServer
             //MessageBox.Show(_path);
         }
 
-        public void GetAnswer() // Получение ответов от пользователя (Пока не работает)
-        {
-            MessageBox.Show("В разработке");
-        }
-
-        public async void GetAnswerUsers(NetworkStream stream)
+        public void GetAnswerUsers() // Получение ответов от пользователя (Пока не работает)
         {
             try
             {
-                
-               
                 byte[] buffer = new byte[1024];
-                int b = stream.Read(buffer, 0, 1024);
+                int b = _stream.Read(buffer, 0, 1024);
                 string answerUsers = Encoding.UTF8.GetString(buffer);
                 MessageBox.Show(answerUsers);
             }
